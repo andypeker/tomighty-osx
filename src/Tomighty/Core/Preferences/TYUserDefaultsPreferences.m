@@ -26,6 +26,12 @@ NSString * const PREF_HOTKEY_START = @"org.tomighty.hotkey.start";
 NSString * const PREF_HOTKEY_STOP = @"org.tomighty.hotkey.stop";
 NSString * const PREF_ENABLE_NOTIFICATIONS = @"org.tomighty.enable_notifications";
 
+
+//  Added by Frankie Yang
+int const FRANKIE_POMODORO_DEFAULT = 3;
+int const FRANKIE_POMODORO_SHORT_BREAK = 1;
+int const FRANKIE_POMODORO_LONG_BREAK = 2;
+
 @implementation TYUserDefaultsPreferences
 {
     id <TYEventBus> eventBus;
@@ -40,9 +46,13 @@ NSString * const PREF_ENABLE_NOTIFICATIONS = @"org.tomighty.enable_notifications
 
         NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
 
-        [defaultValues setObject:[NSNumber numberWithInt:25] forKey:PREF_TIME_POMODORO];
-        [defaultValues setObject:[NSNumber numberWithInt:5] forKey:PREF_TIME_SHORT_BREAK];
-        [defaultValues setObject:[NSNumber numberWithInt:15] forKey:PREF_TIME_LONG_BREAK];
+//        [defaultValues setObject:[NSNumber numberWithInt:5] forKey:PREF_TIME_POMODORO];
+//        [defaultValues setObject:[NSNumber numberWithInt:1] forKey:PREF_TIME_SHORT_BREAK];
+//        [defaultValues setObject:[NSNumber numberWithInt:3] forKey:PREF_TIME_LONG_BREAK];
+//        Commented and Added by Frankie Yang
+        [defaultValues setObject:[NSNumber numberWithInt:FRANKIE_POMODORO_DEFAULT] forKey:PREF_TIME_POMODORO];
+        [defaultValues setObject:[NSNumber numberWithInt:FRANKIE_POMODORO_SHORT_BREAK] forKey:PREF_TIME_SHORT_BREAK];
+        [defaultValues setObject:[NSNumber numberWithInt:FRANKIE_POMODORO_LONG_BREAK] forKey:PREF_TIME_LONG_BREAK];
         [defaultValues setObject:[NSNumber numberWithInt:true] forKey:PREF_PLAY_SOUND_WHEN_TIMER_STARTS];
         [defaultValues setObject:[NSNumber numberWithInt:true] forKey:PREF_PLAY_SOUND_WHEN_TIMER_GOES_OFF];
         [defaultValues setObject:[NSNumber numberWithInt:true] forKey:PREF_PLAY_TICKTOCK_SOUND_DURING_POMODORO];
